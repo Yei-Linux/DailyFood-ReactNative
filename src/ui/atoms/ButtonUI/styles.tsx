@@ -5,11 +5,13 @@ export const ButtonStyles = StyleSheet.create({
     alignItems: 'center',
   },
   button: {
-    padding: 10,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
     borderRadius: 20,
   },
   buttonContent: {
     flexDirection: 'row',
+    justifyContent: 'space-around',
   },
   shadow: {
     shadowColor: '#ff0000',

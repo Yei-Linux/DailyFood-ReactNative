@@ -25,8 +25,8 @@ const ButtonUI = ({text, variants = 'primary', iconName}: IButtonUI) => {
           style={{
             ...ButtonStyles.buttonContent,
           }}>
+          {iconName && <IconUI name={iconName} fill="#FFFFFF" />}
           <TextUI text={text} weight="500" color="#FFFFFF" />
-          {iconName && <IconUI name={iconName} />}
         </View>
       </TouchableOpacity>
     </View>
