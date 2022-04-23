@@ -39,7 +39,7 @@ const Ingredient = ({
           <TextUI
             text={`${size} ${sizeType}`}
             weight="500"
-            color="#fdac2b"
+            color="#7f9cf5"
             size={13}
           />
         </View>
