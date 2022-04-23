@@ -19,11 +19,15 @@ export interface ITextUI {
   color?: string;
   text: string;
   weight?: TWeight;
+  size?: number;
 }
 
-const TextUI = ({text, weight, color = '#000'}: ITextUI) => {
+const TextUI = ({text, weight, color = '#000', size = 15}: ITextUI) => {
   return (
-    <Text style={{...TextStyles.text, fontWeight: weight, color}}>{text}</Text>
+    <Text
+      style={{...TextStyles.text, fontWeight: weight, color, fontSize: size}}>
+      {text}
+    </Text>
   );
 };
 

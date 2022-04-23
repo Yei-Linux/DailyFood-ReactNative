@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 
-export const ButtonStyles = StyleSheet.create({
-  buttonView: {
+export const TagStyles = StyleSheet.create({
+  tag: {
     alignItems: 'center',
   },
 });

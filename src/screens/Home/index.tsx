@@ -1,12 +1,15 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
+import Ingredients from '../../components/Ingredients';
 import ButtonUI from '../../ui/atoms/ButtonUI';
+import Tag from '../../ui/atoms/TagUI';
 
 const Home = () => {
   return (
     <View>
-      <Text>Hello world!</Text>
-      <ButtonUI text="Add Food" iconName="Plus" />
+      <Ingredients />
+      <ButtonUI direction="normal" text="Add Food" iconName="Plus" />
+      <Tag direction="normal" text="Finish" iconName="Plus" />
     </View>
   );
 };

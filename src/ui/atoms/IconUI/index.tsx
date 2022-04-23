@@ -21,7 +21,7 @@ const IconUI = ({
   height = '20',
   fill,
   paddingLeft = 0,
-  paddingRight = 5,
+  paddingRight = 0,
 }: IIconUI) => {
   const {svg, ...iconSelected} = svgs[name];
 
