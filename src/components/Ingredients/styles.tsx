@@ -1,7 +1,9 @@
 import {StyleSheet} from 'react-native';
 
 export const IngredientsStyles = StyleSheet.create({
-  ingredients: {},
+  ingredients: {
+    height: '100%',
+  },
   ingredientsHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -11,6 +13,15 @@ export const IngredientsStyles = StyleSheet.create({
   ingredientsSwitchView: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
+  },
+  ingredientSearcher: {
+    paddingHorizontal: 10,
+    marginBottom: 10,
+  },
+  ingredientsFooter: {
+    marginVertical: 15,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
   },
   switcherAction: {
     padding: 0,
@@ -27,11 +38,4 @@ export const IngredientsStyles = StyleSheet.create({
     shadowRadius: 1,
     elevation: 20,
   },
-  ingredientsGrid: {
-    backgroundColor: 'red',
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
-  ingredientsSlider: {},
 });

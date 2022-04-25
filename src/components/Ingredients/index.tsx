@@ -1,17 +1,21 @@
 import React, {useState} from 'react';
-import {ScrollView, TouchableOpacity, View} from 'react-native';
+import {TouchableOpacity, View} from 'react-native';
 import {ingredients} from '../../mocks/ingredients';
+import ButtonUI from '../../ui/atoms/ButtonUI';
 import TextUI from '../../ui/atoms/TextUI';
 import IconUI from '../../ui/atoms/IconUI';
 import {cls} from '../../utils/classNames';
 import Ingredient from '../Ingredient';
 import {IngredientsStyles} from './styles';
+import ViewType, {TView} from '../../ui/atoms/ViewType';
+import InputUI from '../../ui/atoms/InputUI';
+import {useInput} from '../../hooks/useInput';
 
 export interface IIngredients {}
 
-export type TView = 'grid' | 'slider';
-
 const Ingredients = ({}: IIngredients) => {
+  const {inputValue, handleChange} = useInput();
+
   const [viewType, setViewType] = useState<TView>('slider');
 
   const toggleToSliderViewType = () => setViewType('slider');
@@ -52,24 +56,37 @@ const Ingredients = ({}: IIngredients) => {
         </View>
       </View>
 
-      <ScrollView
-        style={cls(
-          viewType === 'slider' && IngredientsStyles.ingredientsSlider,
-          viewType === 'grid' && IngredientsStyles.ingredientsGrid,
-        )}
-        horizontal={viewType === 'slider'}
-        showsVerticalScrollIndicator={false}
-        showsHorizontalScrollIndicator={false}>
-        {ingredients.map(({image, name, size, sizeType}) => (
-          <Ingredient
-            marginHorizontal={8}
-            image={image}
-            name={name}
-            size={size}
-            sizeType={sizeType}
-          />
-        ))}
-      </ScrollView>
+      <View style={cls(IngredientsStyles.ingredientSearcher)}>
+        <InputUI
+          placeholder="Search any ingredient..."
+          value={inputValue}
+          onChangeText={handleChange}
+        />
+      </View>
+
+      <ViewType viewType={viewType}>
+        {ingredients
+          .filter(({name}) =>
+            inputValue === ''
+              ? true
+              : name.toLowerCase().includes(inputValue.toLowerCase()),
+          )
+          .map(({image, name, size, sizeType}) => (
+            <Ingredient
+              marginVertical={8}
+              marginHorizontal={8}
+              image={image}
+              name={name}
+              size={size}
+              sizeType={sizeType}
+            />
+          ))}
+      </ViewType>
+
+      <View style={cls(IngredientsStyles.ingredientsFooter)}>
+        <ButtonUI direction="normal" text="Add Ingredient" iconName="Plus" />
+        <ButtonUI direction="normal" text="Show Preparation" iconName="Plus" />
+      </View>
     </View>
   );
 };

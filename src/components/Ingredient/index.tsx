@@ -8,6 +8,7 @@ import {ImageStyles} from './styles';
 type TIngredient = 'kg' | 'gr' | 'mg';
 
 export interface IIngredient {
+  marginVertical?: number;
   marginHorizontal?: number;
   image: string;
   name: string;
@@ -20,10 +21,15 @@ const Ingredient = ({
   name,
   size,
   sizeType,
+  marginVertical = 0,
   marginHorizontal = 0,
 }: IIngredient) => {
   return (
-    <View style={cls(ImageStyles.ingredientWrapper, {marginHorizontal})}>
+    <View
+      style={cls(ImageStyles.ingredientWrapper, {
+        marginHorizontal,
+        marginVertical,
+      })}>
       <CardUI>
         <View style={ImageStyles.ingredient}>
           <View style={ImageStyles.ingredientImage}>

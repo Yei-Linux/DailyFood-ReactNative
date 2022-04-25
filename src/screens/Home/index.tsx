@@ -1,16 +1,12 @@
 import React from 'react';
-import {View} from 'react-native';
 import Ingredients from '../../components/Ingredients';
-import ButtonUI from '../../ui/atoms/ButtonUI';
-import Tag from '../../ui/atoms/TagUI';
+import WithCovered from '../../hocs/WithCovered';
 
 const Home = () => {
   return (
-    <View>
+    <WithCovered src="https://i.imgur.com/GXKIoyc.jpg">
       <Ingredients />
-      <ButtonUI direction="normal" text="Add Food" iconName="Plus" />
-      <Tag direction="normal" text="Finish" iconName="Plus" />
-    </View>
+    </WithCovered>
   );
 };
 
